@@ -6,11 +6,62 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Assigment 1</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-gH2yIJqKdNHPEq0n4Mqa/HGKIhSkIHeL5AyhkYV8i59U5AR6csBvApHHNl/vI1Bx" crossorigin="anonymous">
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-A3rJD856KowSb7dwlZdYEkO39Gagi7vIsF0jrRAoQmDKKtQBHUuLZ9AsSv4jD4Xa" crossorigin="anonymous"></script>
-<link rel="stylesheet" href="style.css">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-A3rJD856KowSb7dwlZdYEkO39Gagi7vIsF0jrRAoQmDKKtQBHUuLZ9AsSv4jD4Xa" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="style.css">
+
+    <script defer type="text/javascript">
+
+      function tampilkanForm(){
+        let form = document.getElementById('form');
+        form.classList.remove("d-none");
+      }
+
+      function hilangkanForm(){
+        let form = document.getElementById('form');
+        form.classList.add("d-none");
+      }
+
+
+      document.addEventListener("DOMContentLoaded", function(){
+
+        document.getElementById("submitBtn").addEventListener("click", (e)=>{
+          e.preventDefault();
+          if (confirm("Apakah anda yakin ingin mengubah data ?")) {
+            if(document.getElementById("input-nama").value !== ""){
+              document.getElementById("nama").textContent = document.getElementById("input-nama").value;
+            }
+            if(document.getElementById("input-role").value !== ""){
+              document.getElementById("role").textContent = document.getElementById("input-role").value;
+            }
+            if(document.getElementById("input-avaibility").value !== ""){
+              document.getElementById("time").textContent = document.getElementById("input-avaibility").value;
+            }
+            if(document.getElementById("input-age").value !== ""){
+              document.getElementById("umur").textContent = document.getElementById("input-age").value;
+            }
+            if(document.getElementById("input-lokasi").value !== ""){
+              document.getElementById("tempat").textContent = document.getElementById("input-lokasi").value;
+            }
+            if(document.getElementById("input-experience").value !== ""){
+              document.getElementById("pengalaman").textContent = document.getElementById("input-experience").value;
+            }
+            if(document.getElementById("input-email").value !== ""){
+              document.getElementById("email").textContent = document.getElementById("input-email").value;
+            }
+
+            document.getElementById('form').reset();
+            hilangkanForm();
+          } 
+
+        }); 
+
+      });  
+
+    </script>
 
 </head>
 <body background-color: rgb(231, 231, 231);>
+
     <nav class="navbar navbar-expand-sm bg-light text-dark">
 
         <div class="container-xxl">
@@ -33,17 +84,20 @@
           </ul>
         </div>
            </nav>
-     
-      <section>
-          <div class="container">
+           <div style="background-color:rgb(231, 231, 231); ;">
+            <br>
+            <br>
+          </div>
+      <section class="profile">
+          <div class="container" style="background-color: white;">
             <div class="row">
               <div class="col">
-                <img src="../images/jeremia.jpg" class="img-fluid" alt="Jer" width="200px" height="200px">
+                <img src="images/gambar.jpg" class="img-fluid" alt="Jer" width="200px" height="200px">
               </div>
               <div class="col-6">
-                <h1>Jeremia Jordan Sihombing</h1>
-              <p>Front End Designer</p>
-              <button type="button" class="btn btn-primary">kontak</button>
+                <h1 id="nama" >Jeremia Jordan Sihombing</h1>
+              <p id="role">Front End Designer</p>
+              <button type="button" class="btn btn-primary" onClick="tampilkanForm();" >edit</button>
               <button type="button" class="btn btn-outline-success">resume</button>
               </div>
               <div class="col">
@@ -52,23 +106,23 @@
     
                     <tr>
                       <th scope="row">Avaibility</th>
-                      <td>full time</td>
+                      <td id="time">full time</td>
                     </tr>
                     <tr>
                       <th scope="row">Usia</th>
-                      <td>20</td>
+                      <td id="umur">20</td>
                     </tr>
                     <tr>
                       <th scope="row">Lokasi</th>
-                      <td>Medan, Indonesia</td>
+                      <td id="tempat">Medan, Indonesia</td>
                     </tr>
                     <tr>
                       <th scope="row">Pengalaman</th>
-                      <td>1</td>
+                      <td id="pengalaman">1</td>
                     </tr>
                     <tr>
                       <th scope="row">Email</th>
-                      <td>jeremiajordan2001@gmail.com</td>
+                      <td id="email">jeremiajordan2001@gmail.com</td>
                     </tr>
     
                   </table>
@@ -76,35 +130,36 @@
               </div>
               <br>
             </section>
-
-            <div class="container-xxl">
-              <label for="nama" class="form-label">Nama</label>
-            <input type="text" class="form-control" >
-            <label for="role" class="form-label">Role</label>
-            <input type="text" class="form-control" >
-            <label for="avaibility" class="form-label">Avaibility</label>
-            <input type="text" class="form-control" >
-            <label for="age" class="form-label">Age</label>
-            <input type="number" class="form-control" >
-            <label for="lokasi" class="form-label">Lokasi</label>
-            <input type="text" class="form-control" >
-            <label for="yearexperience" class="form-label">Year Experience</label>
-            <input type="text" class="form-control" >
-            <label for="email" class="form-label">Email</label>
-            <input type="email" class="form-control" >
-            <br>
-           
-            
-            <div class="d-md-grid gap-lg-5">
-              
-              <button type="button" class="btn btn-success" >Success</button>
+            <div style="background-color:rgb(231, 231, 231); ;">
+              <br>
+              <br>
             </div>
+
+            <section class="form">
+            <form method="POST" class="d-none" action="#" id="form" autocomplete="off">
+              <div class="container-xxl" style="background-color:white;">
+                <label for="nama" class="form-label" >Nama</label>
+                <input name="text" class="form-control" id="input-nama" required >
+                <label for="role" class="form-label">Role</label>
+                <input name="text" class="form-control"id="input-role" required >
+                <label for="avaibility" class="form-label" >Avaibility</label>
+                <input name="text" class="form-control" id="input-avaibility" required>
+                <label for="age" class="form-label">Age</label>
+                <input name="number" min="0" class="form-control"id="input-age" required>
+                <label for="lokasi" class="form-label">Lokasi</label>
+                <input name="text" class="form-control" id="input-lokasi" required>
+                <label for="yearexperience" class="form-label">Year Experience</label>
+                <input name="number" min="0" class="form-control" id="input-experience">
+                <label for="email" class="form-label">Email</label>
+                <input name="email" class="form-control"id="input-email" required >
+              <br>
+              <div class="d-md-grid gap-lg-5">
+                <input type="submit" class="btn btn-success" value="Sukses" id="submitBtn">
+              </div>
+            </form>
               
             </div>
+          </section>
             
-    
-
-          
-         
 </body>
 </html>
